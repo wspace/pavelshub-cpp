@@ -1,6 +1,6 @@
 /**
  * Author: Pavel Shub
- * 
+ *
  * Version:
  *	$Id: assembler.cpp,v 1.2 2007/05/23 03:12:46 cogent Exp cogent $
  *
@@ -56,7 +56,7 @@ int main(int argc, char *argv[]){
 	opc.insert( pair<string,string>("outnum", "\t\n \t") );
 	opc.insert( pair<string,string>("readchar", "\t\n\t ") );
 	opc.insert( pair<string,string>("readnum", "\t\n\t\t") );
-	
+
 	// Start actual program.
 	string program;
 	string opc_com;
@@ -79,15 +79,15 @@ int main(int argc, char *argv[]){
 		}
 		//cout << "Testing: " << "opcode is " << opc_com <<endl;
 		// Check for parameters that accept numbers
-		if(opc_com == "push" || opc_com == "slide" || 
+		if(opc_com == "push" || opc_com == "slide" ||
 			opc_com == "copy"){
 			program += opc[opc_com];
-			program += num_to_wsn(next_ws_token(line),true)+'\n';	
+			program += num_to_wsn(next_ws_token(line),true)+'\n';
 		}
 		else{
 			// Check for parameters that accept labels
-			if( opc_com == "label" || opc_com == "call" || 
-				opc_com == "jump" || opc_com == "jz" || 
+			if( opc_com == "label" || opc_com == "call" ||
+				opc_com == "jump" || opc_com == "jz" ||
 				opc_com == "jn"){
 				program += opc[opc_com];
 				program += num_to_wsn(next_ws_token(line))+'\n';
@@ -97,7 +97,6 @@ int main(int argc, char *argv[]){
 				program += opc[opc_com];
 			}
 		}
-
 	}
 	cout << program << flush;
 	return EXIT_SUCCESS;

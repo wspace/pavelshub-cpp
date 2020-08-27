@@ -13,7 +13,7 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
- * 
+ *
  *
  * Version:
  *	$Id: wspace.cpp,v 1.8 2008/04/04 21:51:02 cogent Exp cogent $
@@ -118,14 +118,14 @@ int main (int argc, char *argv[])
 	char *program_end = program_start + length;
 	in.read(program_start,length);
 	in.close();
-	
+
 	// Variables for processing
 	string num("");
 	int stage(0);
 	long tmp;
 	long in_num(0);
 	char *pc(program_start);	// Program counter
-	
+
 	// Start the first pass.
 	// All the commands will be read and put into the program_stack. All labels
 	// will be put into symtab and all numbers will be read, coverted to long and
@@ -375,7 +375,6 @@ int main (int argc, char *argv[])
 									break;
 								case 23: cout << "jn " << tmp << endl;
 									break;
-						
 							}
 						}
 						program_stack.push_back(stage + 88);
@@ -423,7 +422,7 @@ int main (int argc, char *argv[])
 	if(print_asm || print_letters){
 		return EXIT_SUCCESS;
 	}
-	
+
 	// variables that are needed for the execution of the program
 	unsigned long pcs_size = program_stack.size();
 	unsigned long pcs = 0; // program counter for stack
@@ -431,7 +430,7 @@ int main (int argc, char *argv[])
 	map<long, long>::iterator hcheck; // check var for heap
 	char debug_char('s');
 	long arg1, arg2;
-	
+
 	// now do the actual execution of the program
 	while( pcs < pcs_size ){
 		if(print_debug){
@@ -484,7 +483,7 @@ int main (int argc, char *argv[])
 				if(print_debug) cout << " discard\t: ";
 				break;
 			// label
-			case 107: 
+			case 107:
 				if(print_debug) cout << " label " << numtab[pcs] << "\t: ";
 				break;
 			// call
@@ -500,7 +499,7 @@ int main (int argc, char *argv[])
 				if(print_debug) cout << " call " << numtab[pcs] << "\t: ";
 				break;
 			// jump
-			case 109: 
+			case 109:
 				check = symtab.find(numtab[pcs]);
 				if(check != symtab.end()){
 					pcs = check->second;
@@ -697,8 +696,6 @@ int main (int argc, char *argv[])
 				}
 				debug_char = getchar();
 			}
-
-			
 		}
 		pcs++;
 	}
@@ -720,7 +717,7 @@ void show_help(){
 	// general help
 	cout << "General Help:" << endl;
 	cout << " a\tprint whitespace assembly language instead of program execution" << endl;
-	cout << " l\tprints the code using ABC instead of space, tab, and new line \n\trespectively" 
+	cout << " l\tprints the code using ABC instead of space, tab, and new line \n\trespectively"
 		<< " then exits." << endl;
 	cout << " g\tdebugging mode, will step through each command of the program manually" << endl;
 	cout << " h\tprint this menu then exit" << endl;
@@ -738,8 +735,6 @@ void show_help(){
 	cout << endl;
 	cout << "Whitespace C++ interpreter (c) 2008 Pavel Shub. original by Edwin Brady" << endl;
 	cout << "This program is published under GNU General Public license." << endl;
-	
-	
 }
 
 long convert_num(string wsnum, bool sign){
