@@ -142,6 +142,7 @@ int main (int argc, char *argv[])
 			if(*pc == A) cout << "A";
 			if(*pc == B) cout << "B";
 			if(*pc == C) cout << "C" << endl;
+			pc++;
 			continue;
 		}
 		switch(stage){
