@@ -53,7 +53,15 @@
 #include <vector>
 
 
-using namespace std;
+using std::cout;
+using std::cerr;
+using std::cin;
+using std::endl;
+using std::ios;
+using std::ifstream;
+using std::string;
+using std::map;
+using std::vector;
 
 // Constants
 const char C('\n');	// Newline

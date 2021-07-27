@@ -1,3 +1,7 @@
+# Build targets
+wspace
+assembler
+
 # Object files
 *.o
 *.ko

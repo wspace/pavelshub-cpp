@@ -15,7 +15,14 @@
 #include <fstream>
 #include <map>
 
-using namespace std;
+using std::cout;
+using std::cerr;
+using std::endl;
+using std::flush;
+using std::ifstream;
+using std::string;
+using std::map;
+using std::pair;
 
 string num_to_wsn(string num, bool sign=false);
 string next_ws_token(string &line);

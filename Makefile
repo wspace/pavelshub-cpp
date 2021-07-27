@@ -1,3 +1,5 @@
+all: wspace assembler
+
 assembler: assembler.o
 	g++ -o assembler assembler.o
 assembler.o: assembler.cpp
